@@ -1,0 +1,7 @@
+D:\Projects\ZLKB\HumanLib\bin\Debug\HumanLib.dll
+D:\Projects\ZLKB\HumanLib\bin\Debug\HumanLib.pdb
+D:\Projects\ZLKB\HumanLib\bin\Debug\Templates.dll
+D:\Projects\ZLKB\HumanLib\bin\Debug\Templates.pdb
+D:\Projects\ZLKB\HumanLib\obj\Debug\HumanLib.csprojResolveAssemblyReference.cache
+D:\Projects\ZLKB\HumanLib\obj\Debug\HumanLib.dll
+D:\Projects\ZLKB\HumanLib\obj\Debug\HumanLib.pdb

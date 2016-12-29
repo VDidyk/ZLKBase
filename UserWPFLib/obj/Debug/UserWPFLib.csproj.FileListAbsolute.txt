@@ -1,0 +1,14 @@
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.csprojResolveAssemblyReference.cache
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib_MarkupCompile.cache
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib_MarkupCompile.lref
+D:\Projects\ZLKB\UserWPFLib\bin\Debug\UserWPFLib.dll
+D:\Projects\ZLKB\UserWPFLib\bin\Debug\UserWPFLib.pdb
+D:\Projects\ZLKB\UserWPFLib\bin\Debug\Templates.dll
+D:\Projects\ZLKB\UserWPFLib\bin\Debug\Templates.pdb
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\Themes\Generic.baml
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.g.resources
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.Properties.Resources.resources
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.csproj.GenerateResource.Cache
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.dll
+D:\Projects\ZLKB\UserWPFLib\obj\Debug\UserWPFLib.pdb

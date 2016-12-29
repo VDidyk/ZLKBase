@@ -1,0 +1,4 @@
+D:\Projects\ZLKB\Templates\bin\Debug\Templates.pdb
+D:\Projects\ZLKB\Templates\obj\Debug\Templates.dll
+D:\Projects\ZLKB\Templates\obj\Debug\Templates.pdb
+D:\Projects\ZLKB\Templates\obj\Debug\Templates.csprojResolveAssemblyReference.cache

@@ -1,0 +1,7 @@
+D:\Projects\ZLKB\Loc\bin\Debug\Loc.dll
+D:\Projects\ZLKB\Loc\bin\Debug\Loc.pdb
+D:\Projects\ZLKB\Loc\bin\Debug\Templates.dll
+D:\Projects\ZLKB\Loc\obj\Debug\Loc.csprojResolveAssemblyReference.cache
+D:\Projects\ZLKB\Loc\obj\Debug\Loc.dll
+D:\Projects\ZLKB\Loc\obj\Debug\Loc.pdb
+D:\Projects\ZLKB\Loc\bin\Debug\Templates.pdb

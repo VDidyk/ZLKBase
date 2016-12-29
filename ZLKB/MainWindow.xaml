@@ -1,0 +1,953 @@
+﻿<Window x:Class="ZLKB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="718.879" Width="1233.713" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Template.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF0D0E30" Offset="0.587"/>
+        </RadialGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid Margin="10,10,10,641">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1143*"/>
+                <ColumnDefinition Width="42*"/>
+                <ColumnDefinition Width="41*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource MenuTextBlock}" Grid.Column="2" TextWrapping="Wrap" Text="x" Foreground="White" TextAlignment="Center" FontSize="34" FontFamily="Arial" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Height="33" VerticalAlignment="Top" >
+            </TextBlock>
+            <TextBlock Style="{StaticResource MenuTextBlock}" Grid.Column="1" TextWrapping="Wrap" Text="-" Foreground="White" VerticalAlignment="Top" TextAlignment="Center" FontSize="34" FontFamily="Arial" FontWeight="Bold" MouseDown="TextBlock_MouseDown_1" Height="33"/>
+            <TextBlock  TextWrapping="Wrap" Text="ZLKBase" Foreground="White" Margin="10 0 10 0" TextAlignment="Left" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+            <TextBlock  TextWrapping="Wrap" Text="Західелком" Foreground="White" Margin="40,28,986,0" TextAlignment="Left" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+        </Grid>
+        <Grid Visibility="Visible" Margin="0,76,0,0" Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="354*"/>
+                <ColumnDefinition Width="355*"/>
+                <ColumnDefinition Width="355*"/>
+                <ColumnDefinition Width="84*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel  HorizontalAlignment="Center" Height="556" VerticalAlignment="Center" Width="230" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Left" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" TextWrapping="Wrap" Text="Клиенты" VerticalAlignment="Top" Height="36" Width="229"/>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#8c0a79" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Создать" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="CreateClientButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <WrapPanel Height="100" Margin="0 10 0 0">
+                    <Button  Template="{StaticResource RectangleButtonTemplate}" Name="ShowClientButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Background="#079103" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.5,0.505" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="ShowClientButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ShowClientButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="ShowClientButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="FindClientButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="29 0 0 0"  Background="#c60a0a" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.515,0.52" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="FindClientButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindClientButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="FindClientButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Поиск" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </WrapPanel>
+                <TextBlock HorizontalAlignment="Left" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" Margin="0,15,0,0" TextWrapping="Wrap" Text="Заявки" VerticalAlignment="Top" Height="36" Width="229"/>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#de7503" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Создать" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="CreateRequestButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#0322de" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="ShowRequestButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#8f8f8f" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="229" Height="44">
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Поиск" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="FindRequestButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Width="230" HorizontalAlignment="Center" VerticalAlignment="Center" Height="556">
+                <TextBlock HorizontalAlignment="Left" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" TextWrapping="Wrap" Text="Поставщики" VerticalAlignment="Top" Height="36" Width="229"/>
+                <WrapPanel Height="100" Margin="0 0 0 0">
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="AddSupplierButton"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Background="#8f8f8f" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.495,0.52" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="AddSupplierButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="AddSupplierButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Добавить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="FindSupplierButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="29 0 0 0"  Background="#de7503" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.495,0.52" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="FindSupplierButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindSupplierButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="FindSupplierButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Поиск" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </WrapPanel>
+                <Button HorizontalContentAlignment="Center" Margin="0 10 0 0" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#079103" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="ShowSupplierButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" Margin="0,15,0,0" TextWrapping="Wrap" Text="Отправки" VerticalAlignment="Top" Height="36" Width="229"/>
+                <Button HorizontalContentAlignment="Center" Margin="0 10 0 0" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#8c0a79" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Список" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="ShowShippingsButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <WrapPanel Height="100" Margin="0 10 0 0">
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="AddShippingButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#0322de" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.48,0.5" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="AddShippingButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="AddShippingButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="AddShippingButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Добавить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="FindShippingButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="29 0 0 0" Background="#2bc3ba" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.495,0.53" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="FindShippingButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="FindShippingButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="FindShippingButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Поиск" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Height="556" VerticalAlignment="Center" Width="230" Grid.Column="3">
+                <TextBlock HorizontalAlignment="Left" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" TextWrapping="Wrap" Text="Пользователи" VerticalAlignment="Top" Height="36" Width="229"/>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#c60a0a" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="229" Height="44" Name="ShowUsersButton" Click="ShowUsersButton_Click_1" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="ShowUsersButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#8f8f8f" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Создать" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="AddUsersButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SimpleButton}"  Background="#8c0a79" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="229" Height="44" >
+                    <Grid>
+                        <WrapPanel >
+                            <Label Content="Поиск" VerticalContentAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                            <Image Name="FindUsersButtonImage" Margin="5 0 0 0" />
+                        </WrapPanel>
+                    </Grid>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="0 15 0 0" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold" TextWrapping="Wrap" Text="Прочее" VerticalAlignment="Top" Height="36" Width="229"/>
+                <WrapPanel Height="100" Margin="0 10 0 0">
+                    <Button Template="{StaticResource RectangleButtonTemplate}" Name="ConfigurationButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#de7503" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="100" RenderTransformOrigin="0.495,0.53" >
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="ConfigurationButtonTransform" Angle="0" />
+                        </Button.RenderTransform>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="Angle" 
+                To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="CenterX" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        <DoubleAnimation 
+                Storyboard.TargetName="ConfigurationButtonTransform"
+                Storyboard.TargetProperty="CenterY" 
+                To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Grid>
+                            <StackPanel>
+                                <Image x:Name="ConfigurationButtonImage" Margin="5 0 0 0" Height="36" />
+                                <Label Content="Настройки" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Visibility="Hidden" Name="UsersGrid">
+            <Grid Height="100" VerticalAlignment="Top" Margin="0,83,0,0">
+                <TextBlock Style="{StaticResource MenuTextBlock}" Grid.Column="0" TextWrapping="Wrap" Margin="20 0 0 0" Foreground="White" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="34" FontFamily="Arial" FontWeight="Bold">
+            <Image Height="100" Width="50" Name="BackBlockIMG" MouseDown="BackBlockIMG_MouseDown"/>
+                </TextBlock>
+            </Grid>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.CanContentScroll="True">
+                <StackPanel Margin="20 0 50 0">
+                    <Label Height="100" Content="Пользователи"  FontSize="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Arial" FontWeight="Bold" Width="500"/>
+                    <ListView Height="300" Width="594">
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <WrapPanel x:Name="panel">
+                                    <Image Width="50" Height="50" Source="{Binding IMGpath}" Margin="10 10 0 10">
+                                        <Image.Effect>
+                                            <DropShadowEffect Opacity="0.5"/>
+                                        </Image.Effect>
+                                    </Image>
+                                    <Label Content="{Binding name}" x:Name="PositionLableName" FontSize="20" Foreground="Black"  VerticalContentAlignment="Center" FontFamily="Verdana" Margin="20 0 0 0"/>
+                                </WrapPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="CreateUserInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#079103" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" Click="CreateUserInUsersButton_Click" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="CreateUserInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreateUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="CreateUserInUsersButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Добавить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="EditUserInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#c50000" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="EditUserInUserTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditUserInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="EditUserInUserButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Править" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="DeleteUserInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#0030ff" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="DeleteUserInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeleteUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="DeleteUserInUsersButtonTransformImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Удалить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="ShowUserInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#b2b2b2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" Click="ShowUserInUsersButton_Click" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="ShowUserInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowUserInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="ShowUserInUsersButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel Margin="20 0 50 0">
+                    <Label Height="100" Content="Должности"  FontSize="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Arial" FontWeight="Bold" Width="500"/>
+                    <ListView Height="300" Width="594">
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <WrapPanel x:Name="panel">
+                                    <Image Width="50" Height="50" Source="{Binding IMGpath}" Margin="10 10 0 10">
+                                        <Image.Effect>
+                                            <DropShadowEffect Opacity="0.5"/>
+                                        </Image.Effect>
+                                    </Image>
+                                    <Label Content="{Binding name}" x:Name="PositionLableName" FontSize="20" Foreground="Black"  VerticalContentAlignment="Center" FontFamily="Verdana" Margin="20 0 0 0"/>
+                                </WrapPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="CreatePositionInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#079103" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" Click="CreatePositionInUsersButton_Click" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="CreatePositionInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="CreatePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="CreatePositionInUsersButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Добавить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="EditPositionInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#c50000" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="EditPositionInUserTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="EditPositionInUserTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="EditPositionInUserButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Править" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="DeletePositionInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#0030ff" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="DeletePositionInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="DeletePositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="DeletePositionInUserButtonTransformImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Удалить" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                        <Button Template="{StaticResource RectangleButtonTemplate}" x:Name="ShowPositionInUsersButton" HorizontalContentAlignment="Center" Margin="20" VerticalContentAlignment="Center"  Background="#b2b2b2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" RenderTransformOrigin="0.5,0.505" >
+                            <Button.RenderTransform>
+                                <RotateTransform x:Name="ShowPositionInUsersButtonTransform" Angle="0" />
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="-360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="Angle" 
+                								To="360" Duration="0:0:0.5" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterX" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                            <DoubleAnimation 
+                								Storyboard.TargetName="ShowPositionInUsersButtonTransform"
+                								Storyboard.TargetProperty="CenterY" 
+                								To="0" Duration="0:0:1" FillBehavior="Stop" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Grid>
+                                <StackPanel>
+                                    <Image x:Name="ShowPositionInUsersButtonImage" Margin="5 0 0 0" Height="36" />
+                                    <Label Content="Просмотр" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Arial" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>

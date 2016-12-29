@@ -1,0 +1,7 @@
+D:\Projects\ZLKB\Contacts\bin\Debug\Contacts.dll
+D:\Projects\ZLKB\Contacts\bin\Debug\Contacts.pdb
+D:\Projects\ZLKB\Contacts\bin\Debug\Templates.dll
+D:\Projects\ZLKB\Contacts\bin\Debug\Templates.pdb
+D:\Projects\ZLKB\Contacts\obj\Debug\Contacts.csprojResolveAssemblyReference.cache
+D:\Projects\ZLKB\Contacts\obj\Debug\Contacts.dll
+D:\Projects\ZLKB\Contacts\obj\Debug\Contacts.pdb
